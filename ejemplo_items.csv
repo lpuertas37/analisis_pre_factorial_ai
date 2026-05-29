@@ -1,0 +1,13 @@
+item_id,construct,text
+IA01,autoeficacia,Puedo formular instrucciones claras para obtener respuestas utiles de una herramienta de inteligencia artificial.
+IA02,autoeficacia,Me siento capaz de ajustar mis prompts cuando la respuesta inicial no cumple el objetivo.
+IA03,autoeficacia,Soy capaz de comparar varias respuestas generadas por IA y elegir la mas adecuada.
+IA04,uso_critico,Verifico la informacion generada por IA antes de usarla en una decision importante.
+IA05,uso_critico,Identifico posibles sesgos o errores en las respuestas producidas por inteligencia artificial.
+IA06,uso_critico,Contrasto las salidas de IA con fuentes confiables cuando el tema requiere precision.
+IA07,etica,Protejo datos personales o sensibles cuando interactuo con sistemas de IA.
+IA08,etica,Considero las consecuencias eticas antes de publicar contenido generado con IA.
+IA09,etica,Reconozco cuando debo declarar que utilice inteligencia artificial en una tarea academica o profesional.
+IA10,aprendizaje,Uso la IA para explorar explicaciones alternativas de un concepto dificil.
+IA11,aprendizaje,La IA me ayuda a organizar mis ideas antes de resolver una tarea compleja.
+IA12,aprendizaje,Utilizo herramientas de IA para recibir retroalimentacion inicial sobre mi trabajo.
