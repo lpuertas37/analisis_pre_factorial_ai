@@ -95,6 +95,7 @@ La arquitectura de agentes esta documentada en:
 
 ```text
 docs/arquitectura_agentes.md
+docs/arquitectura_agentes_literatura.md
 ```
 
 Flujo recomendado:
@@ -111,6 +112,45 @@ python tools/exportar_csv_pre_factorial.py `
   --input templates/items_maestros_template.csv `
   --output salidas_preparacion/items_para_pre_factorial.csv
 ```
+
+## Generar matriz teorica e items candidatos
+
+Para cubrir el flujo completo desde constructos hasta items, ahora hay dos
+comandos previos al analisis pre-factorial.
+
+Primero, convierte una matriz de constructos/dimensiones en una matriz teorica
+trazable:
+
+```powershell
+python tools/generar_matriz_teorica.py `
+  --input templates/constructos_template.csv `
+  --output salidas_preparacion/matriz_teorica.csv `
+  --formato likert
+```
+
+La entrada debe incluir, como minimo:
+
+```text
+constructo,dimension,definicion_conceptual,definicion_operacional,poblacion,contexto,fuente_teorica
+```
+
+El script conserva `indicador` y `conducta_observable` si ya existen; si faltan,
+los deriva de la dimension y la definicion operacional. Tambien marca nivel de
+evidencia y riesgo preliminar de solapamiento.
+
+Luego genera items candidatos:
+
+```powershell
+python tools/generar_items.py `
+  --input salidas_preparacion/matriz_teorica.csv `
+  --output salidas_preparacion/items_maestros_generados.csv `
+  --por-indicador 4 `
+  --minimo-output salidas_preparacion/items_para_pre_factorial.csv
+```
+
+La salida maestra conserva trazabilidad por constructo, dimension, indicador,
+fuente, polaridad, estado y notas de revision. El CSV minimo queda listo para el
+analisis pre-factorial.
 
 Luego puedes correr:
 
