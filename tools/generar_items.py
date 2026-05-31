@@ -100,7 +100,6 @@ def observable_as_infinitive(value: str) -> str:
         (r"^usa\b", "usar"),
         (r"^comunica\b", "comunicar"),
         (r"^evalua\b", "evaluar"),
-        (r"^evalua\b", "evaluar"),
         (r"^resuelve\b", "resolver"),
         (r"^colabora\b", "colaborar"),
         (r"^gestiona\b", "gestionar"),
