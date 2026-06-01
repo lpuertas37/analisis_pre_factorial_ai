@@ -90,20 +90,56 @@ items antes del analisis:
 - `items_maestros_template.csv`: matriz maestra con trazabilidad completa por
   item.
 - `items_minimo_script_template.csv`: formato minimo que consume este script.
+- `fuentes_instrumentos_template.csv`: registro de papers, instrumentos e items
+  existentes antes de generar items nuevos.
 
 La arquitectura de agentes esta documentada en:
 
 ```text
 docs/arquitectura_agentes.md
 docs/arquitectura_agentes_literatura.md
+docs/agente_bibliografico_instrumentos.md
 ```
 
 Flujo recomendado:
 
 ```text
-constructo -> matriz teorica -> items candidatos -> revision psicometrica
+constructo -> busqueda de papers/instrumentos -> items existentes
+-> matriz teorica -> items candidatos/adaptados -> revision psicometrica
 -> revision de sesgo -> matriz maestra -> CSV minimo -> analisis pre-factorial
 ```
+
+## Buscar instrumentos existentes antes de generar
+
+Antes de crear items nuevos, busca si ya existen escalas, instrumentos,
+adaptaciones o bancos de items del constructo. Puedes usar Consensus con busquedas
+como:
+
+```text
+"nombre del constructo" scale items validation year:2010-2026
+"nombre del constructo" workplace questionnaire psychometric year:2010-2026
+"nombre del constructo" Spanish adaptation scale items year:2010-2026
+```
+
+Registra los resultados en:
+
+```text
+templates/fuentes_instrumentos_template.csv
+```
+
+Luego estructura instrumentos e items existentes:
+
+```powershell
+python tools/preparar_revision_instrumentos.py `
+  --input templates/fuentes_instrumentos_template.csv `
+  --output-dir salidas_revision_instrumentos `
+  --contexto-objetivo organizacion `
+  --poblacion-objetivo trabajadores
+```
+
+Esto genera `instrumentos_existentes.csv` e `items_existentes.csv`, que sirven
+como punto de partida para adaptar o comparar items antes de producir candidatos
+nuevos.
 
 Para exportar una matriz maestra al formato minimo:
 
