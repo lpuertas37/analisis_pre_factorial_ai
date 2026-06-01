@@ -357,7 +357,7 @@ item_id,juez,claridad,pertinencia,representatividad,sesgo,decision,comentarios
 
 ```text
 Intake
--> Bibliografico
+-> Bibliografico de papers e instrumentos existentes
 -> Mapa nomologico
 -> Constructor psicometrico
 -> Modelo de item
@@ -390,12 +390,13 @@ Intake
 
 Para que el repositorio cubra la idea completa, faltan estos componentes:
 
-1. `generar_matriz_teorica.py`
-2. `generar_items.py`
-3. `revisar_items.py`
-4. `evaluar_alineacion_semantica.py`
-5. `estimar_pseudo_discriminacion.py`
-6. `orquestar_banco_items.py`
+1. `preparar_revision_instrumentos.py`
+2. `generar_matriz_teorica.py`
+3. `generar_items.py`
+4. `revisar_items.py`
+5. `evaluar_alineacion_semantica.py`
+6. `estimar_pseudo_discriminacion.py`
+7. `orquestar_banco_items.py`
 
 El script existente `analisis_pre_factorial.py` corresponde principalmente a los
 agentes 12 y parte del 11. La arquitectura actual del repo documenta el flujo,
